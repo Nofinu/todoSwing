@@ -43,22 +43,27 @@ public class MainPageLayout {
 
         Container buttonContainer = new Container();
         buttonContainer.setLayout(new FlowLayout());
-//        ImageIcon img = new ImageIcon("C:\\Users\\Administrateur\\Desktop\\TodoListSwing\\src\\icon\\plus-circle.svg");
-        JButton addButton = new JButton("Add");
+        ImageIcon imgPlus = new ImageIcon("C:\\Users\\Administrateur\\Desktop\\TodoListSwing\\src\\icon\\img.png");
+        ImageIcon imgCheck = new ImageIcon("C:\\Users\\Administrateur\\Desktop\\TodoListSwing\\src\\icon\\check_icon.png");
+        ImageIcon imgMinus = new ImageIcon("C:\\Users\\Administrateur\\Desktop\\TodoListSwing\\src\\icon\\minus_icon.png");
+        JButton addButton = new JButton("Add",imgPlus);
+        addButton.setBackground(Color.white);
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addAction();
             }
         });
-        JButton deleteButton = new JButton("Delete");
+        JButton deleteButton = new JButton("Delete",imgMinus);
+        deleteButton.setBackground(Color.white);
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 deletAction();
             }
         });
-        JButton completeButton = new JButton("Complete");
+        JButton completeButton = new JButton("Complete",imgCheck);
+        completeButton.setBackground(Color.white);
         completeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,6 +80,7 @@ public class MainPageLayout {
 
     private void addAction (){
         todoListModel.addTodo(new Todo(todoInput.getText()));
+        todoInput.setText("");
         todoList.setListData(todoListModel.getlist().toArray());
 
     }
