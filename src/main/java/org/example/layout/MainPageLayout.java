@@ -27,10 +27,13 @@ public class MainPageLayout {
         mainPanel = new JPanel();
         mainPanel.setLayout( new BorderLayout());
 
-        todoInput = new JTextField();
+        Container c = new Container();
+        c.setLayout(new FlowLayout());
+        todoInput = new JTextField(40);
         Border border = new LineBorder(Color.black);
         todoInput.setBorder(border);
-        mainPanel.add(todoInput,BorderLayout.NORTH);
+        c.add(todoInput);
+        mainPanel.add(c,BorderLayout.NORTH);
 
         Container tableContainer = new Container();
         todoList = new JList();
